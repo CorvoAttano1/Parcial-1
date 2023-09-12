@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú Admin</title>
+  <link rel="stylesheet" type="text/CSS" href="admin.css" >
+  <link rel="stylesheet" type="text/CSS" href="barra navegacion.css" >
+</head>
+<body>
+
+  <header>
+    <h1>Menú Admin</h1>
+  </header>
+
+  <div id="barra de navegacion">
+    <header>
+        <nav>
+            <ul class="menu">
+            <li><a href="noticias.html"></a>Noticias--</li>
+            <li><li><a href="admin.html"></a>Admin--</li></li>
+            <li><li><a href="singup.html"></a>Sing up--</li></li>
+        </ul>
+        </nav>
+    </header>
+    </div>
+
+  <main>
+
+    <section class="login">
+      <h2>Iniciar sesión</h2>
+
+      <form action="#">
+        <input type="text" placeholder="Usuario" name="usuario">
+        <input type="password" placeholder="Contraseña" name="contraseña">
+        <button type="submit">Iniciar sesión</button>
+        <button type="button" onclick="window.location.href='registro.html'">Registrarse</button>
+        <button type="button" onclick="window.location.href='noticias.html'">Cancelar</button>
+      </form>
+    </section>
+
+  </main>
+
+  
+
+</body>
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const usuario = document.querySelector("input[name='usuario']").value;
+    const contraseña = document.querySelector("input[name='contraseña']").value;
+
+    console.log("Usuario:", usuario);
+    console.log("Contraseña:", contraseña);
+  });
+</script>
+</html>

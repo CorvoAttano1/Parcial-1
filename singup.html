@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <link rel="stylesheet" type="text/CSS" href="singup.css" >
+  <link rel="stylesheet" type="text/CSS" href="barra navegacion.css" >
+</head>
+<body>
+
+  <header>
+    <h1>Registro</h1>
+  </header>
+
+  <div id="barra de navegacion">
+    <header>
+        <nav>
+            <ul class="menu">
+            <li><a href="noticias.html"></a>Noticias--</li>
+            <li><li><a href="admin.html"></a>Admin--</li></li>
+            <li><li><a href="singup.html"></a>Sing up--</li></li>
+        </ul>
+        </nav>
+    </header>
+    </div>
+
+  <main>
+
+    <section class="registro">
+      <h2>Ingrese sus datos</h2>
+
+      <form action="#">
+        <input type="text" placeholder="Usuario" name="usuario" pattern="[a-zA-Z0-9_]{3,15}">
+        <input type="email" placeholder="Correo electrónico" name="correo" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}">
+        <input type="password" placeholder="Contraseña" name="contraseña" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=])[a-zA-Z0-9@#$%^&+=]{8,15}">
+        <input type="tel" placeholder="Teléfono" name="telefono">
+        <input type="date" placeholder="Fecha de nacimiento" name="fecha_nacimiento">
+        <input type="text" placeholder="Estrato" name="estrato">
+        <input type="submit" value="Registrar">
+        <button type="button" onclick="window.location.href='admin.html'">Cancelar</button>
+      </form>
+    </section>
+
+  </main>
+
+
+</body>
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const usuario = document.querySelector("input[name='usuario']").value;
+    const correo = document.querySelector("input[name='correo']").value;
+    const contraseña = document.querySelector("input[name='contraseña']").value;
+
+    // Validación de usuario
+    if (usuario.length < 3 || usuario.length > 15) {
+      alert("El usuario debe tener entre 3 y 15 caracteres.");
+      return;
+    }
+
+    // Validación de correo electrónico
+    if (!/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}/.test(correo)) {
+      alert("El correo electrónico no es válido.");
+      return;
+    }
+
+    // Validación de contraseña
+    if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=])[a-zA-Z0-9@#$%^&+=]{8,15}/.test(contraseña)) {
+      alert("La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un número y un símbolo especial.");
+      return;
+    }
+
+    // Mostrar la información ingresada en un alert
+    alert("Usuario: " + usuario + "\nCorreo electrónico: " + correo + "\nContraseña: " + contraseña);
+  });
+</script>
+</html>
